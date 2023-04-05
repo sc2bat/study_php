@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php 
-        $folderNm = '/006_loop';
+        $folderNm = '/007_array';
     ?>
     <h2><a href="<?php echo $folderNm;?>/index.php">WEB</a></h2>
 
