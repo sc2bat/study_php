@@ -28,25 +28,16 @@
         return $resultDescription;
     }
 
-    function print_write(){
+    function print_update(){
         ?>
-        <div><a href="./writeForm.php">WRITE</a></div>
-        <?php
-    }
-    function print_update($title, $description){
-        ?>
-        <div><a href="./update.php?title=<?php echo $title ?>&description=<?php echo $description ?>">UPDATE</a></div>
+        <div><a href="./write.php">WRITE</a></div>
+        <div><a href="./update.php">UPDATE</a></div>
         <?php
     }
 
     function print_delete(){
         ?>
-        <form id="deleteForm" action="./delete.php" method="POST">
-            <div>
-                <input id="title" name="title" type="hidden" value="<?php echo $_GET['id'] ?>"/>
-            </div>
-            <div><button id="btn_delete" type="submit">DELETE</button></div>
-        </form>
+        <div><button id="btn_delete" type="submit">DELETE</button></div>
         <?php
     }
 
@@ -82,32 +73,18 @@
         ?>
     </h2>
 
-    <div id="update">
-        <?php
-            print_write();
-            
-            if(isset($_GET['id'])) {
-                print_update($_GET['id'], print_description());
-                print_delete();
-            }
-        ?>
-    </div>
-
-    <?php
-        echo print_description();
-    ?>
-<!--
     <div>
-        <form id="contentForm" action="./write.php" method="POST">
+        <form id="contentForm" action="./updatePOST.php" method="POST">
             <div>
-                <input id="title" name="title" placeholder="title"/>
+                <input id="origin_title" name="origin_title" type="hidden" value="<?php echo $_GET['title'] ?>"/>
+                <input id="title" name="title" placeholder="title" value="<?php echo $_GET['title'] ?>"/>
             </div>
             <br>
             <div>
-                <textarea id="description" name="description" placeholder="description"></textarea>
+                <textarea id="description" name="description" placeholder="description"><?php echo $_GET['description'] ?></textarea>
             </div>
-            <button type="submit">WRITE</button>
+            <button type="submit">UPDATE</button>
         </form>
-    </div>-->
+    </div>
 </body>
 </html>
