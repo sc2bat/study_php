@@ -11,6 +11,13 @@ $sqlQuery = "INSERT INTO topic(title, description, reg_date)
                  VALUES(?, ?, NOW())";
                  
 $statement = $dbh->prepare($sqlQuery);
+
+// $filtered_array = array(
+//     'title'=>$dbh->quote($_POST['title'])
+//     , 'description'=>$dbh->quote($_POST['description'])
+// );
+// $ret = $statement->bindParam(1, $filtered_array['title'], PDO::PARAM_LOB);
+// $ret = $statement->bindParam(2, $filtered_array['description'], PDO::PARAM_LOB);
 $ret = $statement->bindParam(1, $_POST['title'], PDO::PARAM_LOB);
 $ret = $statement->bindParam(2, $_POST['description'], PDO::PARAM_LOB);
 $ret = $statement->execute();

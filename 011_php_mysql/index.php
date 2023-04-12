@@ -16,6 +16,27 @@
         <div><?php echo fn_print_content()[1];?></div>
 <?php
     }
+    ?>
+
+<br>
+<br>
+<?php
+// Get the client's IP address
+$client_ip = $_SERVER['REMOTE_ADDR'];
+echo 'client ip ==> '.$client_ip; 
+// Execute the arp command and store the output in $output
+exec("arp -a $client_ip", $output);
+
+// The MAC address should be the second element in the array
+$mac_address = $output[1];
+
+// Print the MAC address
+echo "The MAC address for $client_ip is $mac_address";
+
 ?>
+<br>
+<br>
+
+
 
 <?php require_once('./include/footer.php'); ?>
